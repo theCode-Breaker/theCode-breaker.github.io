@@ -41,7 +41,10 @@ body {
 
 .content {
     margin-top: 20px;
-    animation: typing 2s steps(50) 1s forwards;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(40) 1s forwards, blink 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -50,5 +53,11 @@ body {
     }
     to {
         width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
     }
 }
