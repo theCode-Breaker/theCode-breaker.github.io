@@ -1,13 +1,14 @@
 const themeToggleButton = document.getElementById('themeToggle');
 const body = document.body;
 
+// Toggle theme between light and dark
 themeToggleButton.addEventListener('click', () => {
     body.classList.toggle('dark');
-    // Change button icon based on theme
+    // Change the button icon
     if (body.classList.contains('dark')) {
-        themeToggleButton.textContent = '🌙'; // Dark theme, show moon icon
+        themeToggleButton.textContent = '☀️'; // Change to sun icon for dark mode
     } else {
-        themeToggleButton.textContent = '☀️'; // Light theme, show sun icon
+        themeToggleButton.textContent = '🌙'; // Change to moon icon for light mode
     }
 });
 
@@ -15,12 +16,12 @@ themeToggleButton.addEventListener('click', () => {
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
     body.classList.add('dark');
-    themeToggleButton.textContent = '🌙';
-} else {
     themeToggleButton.textContent = '☀️';
+} else {
+    themeToggleButton.textContent = '🌙';
 }
 
-// Save preference when theme is toggled
+// Update theme preference in localStorage when toggled
 themeToggleButton.addEventListener('click', () => {
     const theme = body.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
